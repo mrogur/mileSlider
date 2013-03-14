@@ -1,0 +1,65 @@
+
+.container {
+	overflow: hidden;
+}
+
+.mileSlider {
+	overflow: hidden;
+
+}
+
+.insideSlider {
+	width: auto;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	height: 100%;
+}
+
+.insideSlider ul {
+	overflow: hidden;
+	position: relative;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.insideSlider ul li {
+	display: inline-block;
+	float: left;
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	text-align: center;
+}
+
+.insideSlider ul li span {
+	position: absolute;
+	z-index: 1;
+	bottom: 25px;
+	opacity: .75;
+	padding: 4px;
+	background: black;
+	display: inline-block;
+	width: 100px;
+	height: 70px;
+}
+
+.insideSlider p {
+	font-family: Verdana, sans-serif;
+	position: absolute;
+	top: 2px;
+	color: white;
+	font-size: 10px;
+}
+
+.alpha60 {
+/* Fallback for web browsers that doesn't support RGBa */
+background: rgb(0, 0, 0) transparent;
+/* RGBa with 0.6 opacity */
+background: rgba(0, 0, 0, 0.6);
+/* For IE 5.5 - 7*/
+filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+/* For IE 8*/
+-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+}
