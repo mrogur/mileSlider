@@ -3,14 +3,20 @@ jQuery.fn.mileSlider = (function(options){
 
 	var ul = this.find('ul'),
 	items = ul.find('li'),
-	first = items.first();
+	first = items.first(),
 	imgs = this.find('img'),
 	len = imgs.length,
 	maxWidth = 0, maxHeight = 0,
 	me = this,
 	newContainer = $('<div class="mileSlider"><div class="insideSlider"></div></div>'),
-	inside = newContainer.find('.insideSlider');
+	inside = newContainer.find('.insideSlider'),
+	opts = {
+		duration: 2000
+	};
+	options = options || {};
+	opts = $.extend({}, opts, options);
 
+	console.log(opts);	
 	imgs.each(function(){
 		var me = $(this),
 		width = me.width()
@@ -36,14 +42,11 @@ jQuery.fn.mileSlider = (function(options){
 	inside.css('width', len*maxWidth);
 	var counter = 1, margin = 0;
 	var animateFirst = function(){
-			//margin = -(counter*maxWidth);
-			//margin = -maxWidth;
-			//inside.css('margin-left',margin);
 			inside
-			.delay(2000).animate({
+			.delay(opts.duration).animate({
 				'margin-left': margin-maxWidth
 			}, {
-				duration: 2000,
+				duration: opts.duration,
 				queue: true,
 				complete: function() {
 					animateSecond();
@@ -58,7 +61,7 @@ jQuery.fn.mileSlider = (function(options){
 			firstClone = first.clone(),
 			caption = active.find('span');
 
-			//caption.fadeIn(2000);
+			//caption.fadeIn(opts.duration);
 			first.delay(3000).animate({'width': '0px'}, {
 				duration: 800,
 				easing: 'linear',
@@ -68,7 +71,7 @@ jQuery.fn.mileSlider = (function(options){
 					first.find('a').remove();
 					first.remove();
 					ul.append(firstClone);
-					caption.delay(2000).fadeOut(200);
+					caption.delay(500).fadeOut(200);
 					animateSecond();
 				}
 			});
