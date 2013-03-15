@@ -7,6 +7,7 @@ jQuery.fn.mileSlider = (function(options){
 	imgs = this.find('img'),
 	len = imgs.length,
 	maxWidth = 0, maxHeight = 0,
+	margin = 0,
 	me = this,
 	newContainer = $('<div class="mileSlider"><div class="insideSlider"></div></div>'),
 	inside = newContainer.find('.insideSlider'),
@@ -44,7 +45,6 @@ jQuery.fn.mileSlider = (function(options){
 		opacity: 0,
 		width: maxWidth*0.7,
 	});	
-	var counter = 1, margin = 0;
 
 	var animateFirst = function(){
 			inside
@@ -54,7 +54,6 @@ jQuery.fn.mileSlider = (function(options){
 				duration: opts.speed,
 				queue: true,
 				complete: function() {
-					//animateSecond();
 					showCaption(ul.find('li').eq(1), animateSecond);
 				}
 			}
@@ -66,7 +65,7 @@ jQuery.fn.mileSlider = (function(options){
 			firstClone = first.clone(),
 			caption = active.find('span');
 
-			first.delay(opts.duration).animate({'width': '0px'}, {
+			first.delay(opts.duration).animate({'width': 0}, {
 				duration: opts.speed,
 				easing: 'linear',
 				complete: function(){
@@ -80,13 +79,11 @@ jQuery.fn.mileSlider = (function(options){
 		var showCaption = function(context, afterCb) {
 			var caption = context.find('span');
 			if (!caption.length) {
-				afterCb();
+				setTimeout(afterCb, opts.captionFadeSpeed*2+opts.captionDuration);
 			} else {
 				var bottomPos = caption.height();
 				caption.css({
 					bottom: bottomPos+10
-
-
 				});
 				caption.animate({'opacity':opts.opacity}, 500, function(){
 					caption.delay(opts.captionDuration)
