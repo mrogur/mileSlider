@@ -35,13 +35,14 @@
 
 .insideSlider ul li span {
 	position: relative;
-	bottom: 70px;
+/*	bottom: 70px;*/
 	left: 0;
 	opacity: .75;
 	background: black;
 	display: inline-block;
 	width: 100px;
-	height: 70px;
+	min-height: 70px;
+	overflow: hidden;
 }
 
 .insideSlider p {

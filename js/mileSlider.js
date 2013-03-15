@@ -11,7 +11,11 @@ jQuery.fn.mileSlider = (function(options){
 	newContainer = $('<div class="mileSlider"><div class="insideSlider"></div></div>'),
 	inside = newContainer.find('.insideSlider'),
 	opts = {
-		duration: 2000
+		duration: 2000,
+		speed: 800,
+		captionDuration: 2000,
+		captionFadeSpeed: 200,
+		opacity: 0.8
 	};
 	options = options || {};
 	opts = $.extend({}, opts, options);
@@ -33,11 +37,14 @@ jQuery.fn.mileSlider = (function(options){
 	items.css({
 		width: maxWidth,
 		height: maxHeight
-	}).find('span').css('width', maxWidth*0.7);
+	});
 	inside.append(ul);
 
 	inside.css('width', len*maxWidth);
-	inside.find('span').css({opacity: 0});	
+	inside.find('span').css({
+		opacity: 0,
+		width: maxWidth*0.7,
+	});	
 	var counter = 1, margin = 0;
 
 	var animateFirst = function(){
@@ -45,7 +52,7 @@ jQuery.fn.mileSlider = (function(options){
 			.delay(opts.duration).animate({
 				'margin-left': margin-maxWidth
 			}, {
-				duration: opts.duration,
+				duration: opts.speed,
 				queue: true,
 				complete: function() {
 					//animateSecond();
@@ -60,8 +67,8 @@ jQuery.fn.mileSlider = (function(options){
 			firstClone = first.clone(),
 			caption = active.find('span');
 
-			first.delay(3000).animate({'width': '0px'}, {
-				duration: 800,
+			first.delay(opts.duration).animate({'width': '0px'}, {
+				duration: opts.speed,
 				easing: 'linear',
 				complete: function(){
 					first.find('a').remove();
@@ -76,14 +83,21 @@ jQuery.fn.mileSlider = (function(options){
 			if (!caption.length) {
 				afterCb();
 			} else {
-				caption.animate({'opacity':.6}, 500, function(){
-					caption.delay(2000).animate({opacity: 0},500, afterCb);
+				var topPos = caption.height();
+				console.log(caption.height()); 
+				caption.css({
+					bottom: topPos+10
+
+
+				});
+				caption.animate({'opacity':opts.opacity}, 500, function(){
+					caption.delay(opts.captionDuration)
+						   .animate({opacity: 0},opts.captionFadeSpeed, afterCb);
 				});
 			}
 
 		};
 	showCaption(ul.find('li').first(), animateFirst);
-//		animateFirst();
 
 
 
