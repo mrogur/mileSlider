@@ -36,11 +36,10 @@ jQuery.fn.mileSlider = (function(options){
 	}).find('span').css('width', maxWidth*0.7);
 	inside.append(ul);
 
-	var x = inside.find('ul').find('li').first();
-	console.log(x);
-
 	inside.css('width', len*maxWidth);
+	inside.find('span').css({opacity: 0});	
 	var counter = 1, margin = 0;
+
 	var animateFirst = function(){
 			inside
 			.delay(opts.duration).animate({
@@ -49,41 +48,42 @@ jQuery.fn.mileSlider = (function(options){
 				duration: opts.duration,
 				queue: true,
 				complete: function() {
-					animateSecond();
+					//animateSecond();
+					showCaption(ul.find('li').eq(1), animateSecond);
 				}
 			}
 			);
 		};
 		var animateSecond = function() {
 			first = ul.find('li:first');
-			//console.log(first);
 			var	active = first.next('li').next('li'),
 			firstClone = first.clone(),
 			caption = active.find('span');
 
-			//caption.fadeIn(opts.duration);
 			first.delay(3000).animate({'width': '0px'}, {
 				duration: 800,
 				easing: 'linear',
 				complete: function(){
-					
-					//console.log(active);
 					first.find('a').remove();
 					first.remove();
 					ul.append(firstClone);
-
-					caption.animate({'opacity':.6}, 500, function(){
-						caption.animate({opacity: 0},500, animateSecond());
-					});
-					 
-					
+					showCaption(ul.find('li').eq(1), animateSecond);	
 				}
 			});
-
-
 		};	
+		var showCaption = function(context, afterCb) {
+			var caption = context.find('span');
+			if (!caption.length) {
+				afterCb();
+			} else {
+				caption.animate({'opacity':.6}, 500, function(){
+					caption.delay(2000).animate({opacity: 0},500, afterCb);
+				});
+			}
 
-		animateFirst();
+		};
+	showCaption(ul.find('li').first(), animateFirst);
+//		animateFirst();
 
 
 
