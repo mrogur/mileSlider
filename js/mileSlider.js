@@ -57,7 +57,7 @@ jQuery.fn.mileSlider = (function(options){
 		var animateSecond = function() {
 			first = ul.find('li:first');
 			//console.log(first);
-			var	active = first.next('li'),
+			var	active = first.next('li').next('li'),
 			firstClone = first.clone(),
 			caption = active.find('span');
 
@@ -71,8 +71,12 @@ jQuery.fn.mileSlider = (function(options){
 					first.find('a').remove();
 					first.remove();
 					ul.append(firstClone);
-					caption.delay(500).fadeOut(200);
-					animateSecond();
+
+					caption.animate({'opacity':.6}, 500, function(){
+						caption.animate({opacity: 0},500, animateSecond());
+					});
+					 
+					
 				}
 			});
 
