@@ -20,7 +20,6 @@ jQuery.fn.mileSlider = (function(options){
 	options = options || {};
 	opts = $.extend({}, opts, options);
 
-	console.log(opts);	
 	imgs.each(function(){
 		var me = $(this),
 		width = me.width()
@@ -83,10 +82,9 @@ jQuery.fn.mileSlider = (function(options){
 			if (!caption.length) {
 				afterCb();
 			} else {
-				var topPos = caption.height();
-				console.log(caption.height()); 
+				var bottomPos = caption.height();
 				caption.css({
-					bottom: topPos+10
+					bottom: bottomPos+10
 
 
 				});

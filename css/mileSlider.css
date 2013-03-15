@@ -41,14 +41,18 @@
 	background: black;
 	display: inline-block;
 	width: 100px;
-	min-height: 70px;
+	min-height: 25px;
 	overflow: hidden;
+	vertical-align: middle;
 }
 
 .insideSlider p {
 	font-family: Verdana, sans-serif;
+	display: table-cell;
 	margin: 0;
-	padding-left: 5px;
+	min-height: 20px;
+	padding: 5px;
 	color: white;
 	font-size: 10px;
+	vertical-align: middle;
 }
