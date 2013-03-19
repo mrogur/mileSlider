@@ -47,57 +47,56 @@ jQuery.fn.mileSlider = (function(options){
 	});	
 
 	var animateFirst = function(){
-			inside
-			.delay(opts.duration).animate({
-				'margin-left': margin-maxWidth
-			}, {
-				duration: opts.speed,
-				queue: true,
-				complete: function() {
-					showCaption(ul.find('li').eq(1), animateSecond);
-				}
+		inside
+		.delay(opts.duration).animate({
+			'margin-left': margin-maxWidth
+		}, {
+			duration: opts.speed,
+			queue: true,
+			complete: function() {
+				showCaption(ul.find('li').eq(1), animateSecond);
 			}
-			);
-		};
-		var animateSecond = function() {
-			first = ul.find('li:first');
-			var	active = first.next('li').next('li'),
-			firstClone = first.clone(),
-			caption = active.find('span');
+		}
+		);
+	};
+	var animateSecond = function() {
+		first = ul.find('li:first');
+		var	active = first.next('li').next('li'),
+		firstClone = first.clone(),
+		caption = active.find('span');
 
-			first.delay(opts.duration).animate({'width': 0}, {
-				duration: opts.speed,
-				easing: 'linear',
-				complete: function(){
-					first.find('a').remove();
-					first.remove();
-					ul.append(firstClone);
-					showCaption(ul.find('li').eq(1), animateSecond);	
-				}
+		first.delay(opts.duration).animate({'width': 0}, {
+			duration: opts.speed,
+			easing: 'linear',
+			complete: function(){
+				first.find('img').remove();
+				first.remove();
+				ul.append(firstClone);
+				showCaption(ul.find('li').eq(1), animateSecond);	
+			}
+		});
+	};	
+	var showCaption = function(context, afterCb) {
+		var caption = context.find('span');
+		if (!caption.length) {
+			setTimeout(afterCb, opts.captionFadeSpeed*2+opts.captionDuration);
+		} else {
+			var bottomPos = caption.height();
+			caption.css({
+				bottom: bottomPos+10
 			});
-		};	
-		var showCaption = function(context, afterCb) {
-			var caption = context.find('span');
-			if (!caption.length) {
-				setTimeout(afterCb, opts.captionFadeSpeed*2+opts.captionDuration);
-			} else {
-				var bottomPos = caption.height();
-				caption.css({
-					bottom: bottomPos+10
-				});
-				caption.animate({'opacity':opts.opacity}, 500, function(){
+			caption.animate({'opacity':opts.opacity}, opts.captionFadeSpeed, 
+				function(){
 					caption.delay(opts.captionDuration)
-						   .animate({opacity: 0},opts.captionFadeSpeed, afterCb);
+					.animate({opacity: 0},opts.captionFadeSpeed, afterCb);
 				});
-			}
+		}
 
-		};
-	showCaption(ul.find('li').first(), animateFirst);
-
-
-
-
-
-
-
-	});
+	};
+	console.log(window.location.pathname);
+	if(items.length>1) {
+		showCaption(ul.find('li').first(), animateFirst);	
+	}
+	return this;
+	
+});

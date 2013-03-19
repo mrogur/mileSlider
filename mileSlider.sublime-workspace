@@ -4,16 +4,52 @@
 		"selected_items":
 		[
 			[
+				"len",
+				"length"
+			],
+			[
+				"ca",
+				"captionFadeSpeed"
+			],
+			[
+				"tab",
+				"table-cell"
+			],
+			[
+				"o",
+				"opacity"
+			],
+			[
+				"con",
+				"console"
+			],
+			[
+				"to",
+				"topPos"
+			],
+			[
+				"ma",
+				"maxWidth"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"an",
+				"animateSecond"
+			],
+			[
+				"anima",
+				"animateSecond"
+			],
+			[
 				"max",
 				"maxHeight"
 			],
 			[
 				"inl",
 				"inline-block"
-			],
-			[
-				"an",
-				"animate"
 			],
 			[
 				"ani",
@@ -28,10 +64,6 @@
 				"text-align"
 			],
 			[
-				"ma",
-				"maxWidth"
-			],
-			[
 				"inside",
 				"insideSlider"
 			]
@@ -40,26 +72,10 @@
 	"buffers":
 	[
 		{
-			"file": "index.html",
+			"file": "/Users/mrogur/Downloads/backbone.js",
 			"settings":
 			{
-				"buffer_size": 860,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "js/mileSlider.js",
-			"settings":
-			{
-				"buffer_size": 1755,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "css/mileSlider.css",
-			"settings":
-			{
-				"buffer_size": 644,
+				"buffer_size": 55476,
 				"line_ending": "Unix"
 			}
 		}
@@ -70,6 +86,10 @@
 		"height": 360.0,
 		"selected_items":
 		[
+			[
+				"Package Control: git",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
 			[
 				"pacin",
 				"Package Control: Install Package"
@@ -96,13 +116,18 @@
 	},
 	"file_history":
 	[
+		"/Users/mrogur/Documents/gittest/plugin.js",
+		"/Users/mrogur/Documents/labo/index.html",
+		"/Users/mrogur/.bash_profile",
+		"/Users/mrogur/Documents/gittest/.gitignore",
+		"/Users/mrogur/Documents/labo/css/mileSlider.css",
+		"/Users/mrogur/Documents/labo/js/mileSlider.js",
+		"/Users/mrogur/Documents/labo/js/mileSlider_new.js",
 		"/Users/mrogur/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
 		"/Users/mrogur/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
-		"/Users/mrogur/.bash_profile",
 		"/private/etc/apache2/extra/httpd-vhosts.conf",
 		"/private/etc/hosts",
-		"/Users/mrogur/Documents/labo/index.php",
-		"/Users/mrogur/Documents/labo/index.html"
+		"/Users/mrogur/Documents/labo/index.php"
 	],
 	"find":
 	{
@@ -120,6 +145,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"console",
+			"topPos",
+			"console.log",
+			"  ",
+			"2000",
+			"\n	",
 			"Opis",
 			"', ",
 			");	",
@@ -156,86 +187,33 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "index.html",
+					"file": "/Users/mrogur/Downloads/backbone.js",
 					"settings":
 					{
-						"buffer_size": 860,
+						"buffer_size": 55476,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								708,
-								708
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 116.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "js/mileSlider.js",
-					"settings":
-					{
-						"buffer_size": 1755,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1443,
-								1443
+								0,
+								0
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 692.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "css/mileSlider.css",
-					"settings":
-					{
-						"buffer_size": 644,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								476,
-								476
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 355.0,
+						"translation.y": 21896.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
